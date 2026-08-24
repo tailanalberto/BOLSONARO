@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>REalimenta - Administração</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <span>RE</span>
+
+            <div>
+                <strong>REalimenta</strong>
+                <small>Painel Administrativo</small>
+            </div>
+
+        </div>
+
+
+        <nav class="menu-principal">
+
+            <button
+                class="menu ativo"
+                data-tela="dashboard"
+            >
+                <span class="menu-icon">01</span>
+                Dashboard
+            </button>
+
+
+            <button
+                class="menu"
+                data-tela="aprovacoes"
+            >
+                <span class="menu-icon">02</span>
+                Aprovações
+            </button>
+
+
+            <button
+                class="menu"
+                data-tela="usuarios"
+            >
+                <span class="menu-icon">03</span>
+                Usuários
+            </button>
+
+
+            <button
+                class="menu"
+                data-tela="empresas"
+            >
+                <span class="menu-icon">04</span>
+                Empresas
+            </button>
+
+
+            <button
+                class="menu"
+                data-tela="alimentos"
+            >
+                <span class="menu-icon">05</span>
+                Alimentos
+            </button>
+
+
+            <button
+                class="menu"
+                data-tela="auditoria"
+            >
+                <span class="menu-icon">06</span>
+                Auditoria
+            </button>
+
+
+            <button
+                class="menu"
+                data-tela="relatorios"
+            >
+                <span class="menu-icon">07</span>
+                Relatórios
+            </button>
+
+
+            <button
+                class="menu"
+                data-tela="suporte"
+            >
+                <span class="menu-icon">08</span>
+                Suporte
+            </button>
+
+        </nav>
+
+
+        <button class="menu sair" id="btnSair" type="button">
+    <span class="menu-icon">SAIR</span>
+    Sair
+</button>
+
+    </aside>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="conteudo">
+
+
+        <!-- TOPO -->
+
+        <header class="topo">
+
+            <div>
+
+                <div class="breadcrumb">
+                    Administração / <span id="breadcrumbAtual">Dashboard</span>
+                </div>
+
+                <h1 id="titulo">
+                    Dashboard
+                </h1>
+
+                <p id="subtitulo">
+                    Visão geral da plataforma REalimenta
+                </p>
+
+            </div>
+
+
+           <div class="perfil" id="perfilAdministrador" title="Sair do painel">
+    <div class="avatar">AD</div>
+
+    <div class="perfil-info">
+        <strong>Administrador</strong>
+        <span>Acesso administrativo</span>
+    </div>
+
+    <div class="status-online"></div>
+</div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             DASHBOARD
+        ====================================================== -->
+
+        <section
+            id="dashboard"
+            class="tela ativa"
+        >
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <span>
+                            Doações
+                        </span>
+
+                        <div class="card-symbol">
+                            D
+                        </div>
+
+                    </div>
+
+                    <strong
+                        class="numero"
+                        data-value="0000"
+                    >
+                        0000
+                    </strong>
+
+                    <small>
+                        Total registrado
+                    </small>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <span>
+                            Usuários
+                        </span>
+
+                        <div class="card-symbol">
+                            U
+                        </div>
+
+                    </div>
+
+                    <strong class="numero">
+                        0000
+                    </strong>
+
+                    <small>
+                        Usuários cadastrados
+                    </small>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <span>
+                            Famílias atendidas
+                        </span>
+
+                        <div class="card-symbol">
+                            F
+                        </div>
+
+                    </div>
+
+                    <strong class="numero">
+                        0000
+                    </strong>
+
+                    <small>
+                        Famílias beneficiadas
+                    </small>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <span>
+                            Empresas parceiras
+                        </span>
+
+                        <div class="card-symbol">
+                            E
+                        </div>
+
+                    </div>
+
+                    <strong class="numero">
+                        0000
+                    </strong>
+
+                    <small>
+                        Empresas cadastradas
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRÁFICO -->
+
+            <div class="dashboard-grid">
+
+                <div class="painel grafico-painel">
+
+                    <div class="painel-topo">
+
+                        <div>
+
+                            <h2>
+                                Movimentação de alimentos
+                            </h2>
+
+                            <p>
+                                Clique em um dia para visualizar as retiradas
+                            </p>
+
+                        </div>
+
+
+                        <select id="periodo">
+
+                            <option>
+                                Últimos 7 dias
+                            </option>
+
+                            <option>
+                                Últimos 30 dias
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div
+                        class="grafico"
+                        id="grafico"
+                    >
+
+                        <div class="grafico-y">
+
+                            <span>0000</span>
+                            <span>0000</span>
+                            <span>0000</span>
+                            <span>0000</span>
+                            <span>0000</span>
+
+                        </div>
+
+
+                        <div class="grafico-conteudo">
+
+                            <div class="linhas">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+
+                            <div
+                                class="barras"
+                                id="barrasGrafico"
+                            ></div>
+
+
+                            <div
+                                class="dias"
+                                id="diasGrafico"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="resultado-dia"
+                        id="resultadoDia"
+                    >
+
+                        <div class="resultado-vazio">
+
+                            <strong>
+                                Selecione um dia
+                            </strong>
+
+                            <span>
+                                Os produtos retirados aparecerão aqui.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOP PRODUTOS -->
+
+                <div class="painel">
+
+                    <div class="painel-topo">
+
+                        <div>
+
+                            <h2>
+                                Alimentos mais movimentados
+                            </h2>
+
+                            <p>
+                                Produtos com maior saída
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="lista-produtos"
+                        id="topProdutos"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ALERTAS -->
+
+            <div class="dashboard-grid tres">
+
+
+                <div class="painel">
+
+                    <div class="painel-topo">
+
+                        <div>
+
+                            <h2>
+                                Validade
+                            </h2>
+
+                            <p>
+                                Produtos próximos do vencimento
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div id="alertasValidade"></div>
+
+                </div>
+
+
+                <div class="painel">
+
+                    <div class="painel-topo">
+
+                        <div>
+
+                            <h2>
+                                Aprovações
+                            </h2>
+
+                            <p>
+                                Cadastros aguardando análise
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div id="resumoAprovacoes"></div>
+
+                </div>
+
+
+                <div class="painel">
+
+                    <div class="painel-topo">
+
+                        <div>
+
+                            <h2>
+                                Suporte
+                            </h2>
+
+                            <p>
+                                Denúncias recentes
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div id="resumoSuporte"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             APROVAÇÕES
+        ====================================================== -->
+
+        <section
+            id="aprovacoes"
+            class="tela"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Aprovação de cadastros
+                </h2>
+
+                <p>
+                    Analise empresas e usuários pendentes.
+                </p>
+
+            </div>
+
+
+            <div class="painel">
+
+                <div class="tabela-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Empresa
+                                </th>
+
+                                <th>
+                                    Responsável
+                                </th>
+
+                                <th>
+                                    Cadastro
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Ações
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="tabelaAprovacoes"
+                        ></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             USUÁRIOS
+        ====================================================== -->
+
+        <section
+            id="usuarios"
+            class="tela"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Usuários
+                </h2>
+
+                <p>
+                    Controle de usuários e famílias atendidas.
+                </p>
+
+            </div>
+
+
+            <div class="painel">
+
+                <div class="tabela-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Usuário
+                                </th>
+
+                                <th>
+                                    Família
+                                </th>
+
+                                <th>
+                                    Cadastro
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Ação
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="tabelaUsuarios"
+                        ></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EMPRESAS
+        ====================================================== -->
+
+        <section
+            id="empresas"
+            class="tela"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Empresas parceiras
+                </h2>
+
+                <p>
+                    Empresas cadastradas na REalimenta.
+                </p>
+
+            </div>
+
+
+            <div
+                class="empresa-grid"
+                id="listaEmpresas"
+            ></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ALIMENTOS
+        ====================================================== -->
+
+        <section
+            id="alimentos"
+            class="tela"
+        >
+
+            <div class="titulo-secao">
+
+                <div>
+
+                    <h2>
+                        Gestão de alimentos
+                    </h2>
+
+                    <p>
+                        Controle de estoque, validade e categorias.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="botao principal"
+                    id="novoAlimento"
+                >
+                    Novo alimento
+                </button>
+
+            </div>
+
+
+            <div class="filtros">
+
+                <input
+                    type="text"
+                    id="buscarAlimento"
+                    placeholder="Pesquisar alimento..."
+                >
+
+
+                <select id="filtroCategoria">
+
+                    <option value="todos">
+                        Todas as categorias
+                    </option>
+
+                    <option value="Grãos">
+                        Grãos
+                    </option>
+
+                    <option value="Laticínios">
+                        Laticínios
+                    </option>
+
+                    <option value="Hortifruti">
+                        Hortifruti
+                    </option>
+
+                    <option value="Bebidas">
+                        Bebidas
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                class="alimentos-grid"
+                id="listaAlimentos"
+            ></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             AUDITORIA
+        ====================================================== -->
+
+        <section
+            id="auditoria"
+            class="tela"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Auditoria
+                </h2>
+
+                <p>
+                    Histórico de retiradas, reservas e cancelamentos.
+                </p>
+
+            </div>
+
+
+            <div class="filtros">
+
+                <select id="filtroAuditoria">
+
+                    <option value="todos">
+                        Todos os eventos
+                    </option>
+
+                    <option value="retirada">
+                        Retiradas
+                    </option>
+
+                    <option value="reserva">
+                        Reservas
+                    </option>
+
+                    <option value="cancelamento">
+                        Cancelamentos
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="painel">
+
+                <div class="tabela-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Data
+                                </th>
+
+                                <th>
+                                    Horário
+                                </th>
+
+                                <th>
+                                    Usuário
+                                </th>
+
+                                <th>
+                                    Produto
+                                </th>
+
+                                <th>
+                                    Ação
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="tabelaAuditoria"
+                        ></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RELATÓRIOS
+        ====================================================== -->
+
+        <section
+            id="relatorios"
+            class="tela"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Relatórios
+                </h2>
+
+                <p>
+                    Exporte os dados da plataforma.
+                </p>
+
+            </div>
+
+
+            <div class="relatorios-grid">
+
+                <div class="relatorio-card">
+
+                    <div class="relatorio-icone">
+                        CSV
+                    </div>
+
+                    <h3>
+                        Relatório de movimentações
+                    </h3>
+
+                    <p>
+                        Exportar retiradas, reservas e cancelamentos.
+                    </p>
+
+                    <button
+                        class="botao principal"
+                        id="exportarCSV"
+                    >
+                        Exportar CSV
+                    </button>
+
+                </div>
+
+
+                <div class="relatorio-card">
+
+                    <div class="relatorio-icone">
+                        PDF
+                    </div>
+
+                    <h3>
+                        Relatório geral
+                    </h3>
+
+                    <p>
+                        Gerar uma versão para impressão/PDF.
+                    </p>
+
+                    <button
+                        class="botao principal"
+                        id="exportarPDF"
+                    >
+                        Gerar PDF
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SUPORTE
+        ====================================================== -->
+
+        <section
+            id="suporte"
+            class="tela"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Denúncias e suporte
+                </h2>
+
+                <p>
+                    Analise denúncias sobre empresas ou alimentos.
+                </p>
+
+            </div>
+
+
+            <div
+                class="suporte-lista"
+                id="listaDenuncias"
+            ></div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         MODAL PRODUTO
+    ====================================================== -->
+
+    <div
+        class="modal"
+        id="modalProduto"
+    >
+
+        <div class="modal-caixa">
+
+            <button
+                class="modal-fechar"
+                id="fecharModal"
+            >
+                ×
+            </button>
+
+
+            <div id="detalhesProduto"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL DIA DO GRÁFICO
+    ====================================================== -->
+
+    <div
+        class="modal"
+        id="modalDia"
+    >
+
+        <div class="modal-caixa">
+
+            <button
+                class="modal-fechar"
+                id="fecharDia"
+            >
+                ×
+            </button>
+
+
+            <div id="detalhesDia"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
